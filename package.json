@@ -5,7 +5,7 @@
   "license": "copyright © 2018 ~ Polymophic Productions LLC.",
   "main": "src/js/app.js",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js",
+    "dev": "webpack-dev-server --config webpack.config.dev.js",
     "build": "./node_modules/.bin/webpack --config webpack.config.dev.js",
     "build:production": "./node_modules/.bin/webpack --config webpack.config.production.js",
     "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.production.js"
@@ -17,10 +17,13 @@
     ]
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "bootstrap": "^4.1.1",
     "html-webpack-plugin": "^3.2.0",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-fontawesome": "^1.6.1"
+    "react-dom": "^16.4.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -34,8 +37,10 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-runtime": "^6.26.0",
+    "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "4.0.0-beta.0",
+    "file-loader": "^1.1.11",
     "mime": "^2.3.1",
     "node-sass": "^4.9.0",
     "react-hot-loader": "^4.3.3",

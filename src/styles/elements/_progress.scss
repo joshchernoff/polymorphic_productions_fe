@@ -1,0 +1,39 @@
+//
+// Progress bar Styles //
+//
+.progress-box {
+	margin-bottom: 25px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-bottom: 0;
+	}
+	
+	.progress, 
+	.progress-bar {
+		height: 1px;
+		box-shadow: none;
+		border-radius: 0;
+	}
+	.progress {
+		overflow: visible;
+		background: $border-grey;
+		margin: 0;
+		padding: 0;
+		.progress-bar {
+			position: relative;
+			background: $bg-dark;
+			width: 30%;
+			border: none;
+			color: $color-primary;
+			span {
+				position: absolute;
+				top: -23px;
+				right: 0;
+				font-size: 14px;
+			}
+		}
+	}
+}

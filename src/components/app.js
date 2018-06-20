@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import Header from "./header";
-import ScrollToTop from "./scroll-to-top";
-import Footer from "./footer";
+import React, { Component } from 'react';
+import Header from './header';
+import ScrollToTop from './scroll-to-top';
+import Footer from './footer';
 
-import "../styles/app.scss";
+import '../styles/app.scss';
 
 export default class App extends Component {
   render() {
@@ -11,6 +11,7 @@ export default class App extends Component {
       <div className="wrapper">
         <Header />
         <ScrollToTop />
+        <div id="bigshit" />
         <Footer />
       </div>
     );

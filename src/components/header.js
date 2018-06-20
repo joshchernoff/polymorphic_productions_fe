@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import NavItem from "./nav-item";
-import NavDropdown from "./nav-dropdown";
+import React, { Component } from 'react';
+import NavItem from './nav-item';
+import NavDropdown from './nav-dropdown';
 
 export default class Header extends Component {
   render() {

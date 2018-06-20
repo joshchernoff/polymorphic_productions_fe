@@ -1,5 +1,12 @@
-import React, { Component } from "react";
-import FontAwesome from "react-fontawesome";
+import React, { Component } from 'react';
+import fontawesome from '@fortawesome/fontawesome';
+// Facebook and Twitter icons
+import faFacebook from '@fortawesome/fontawesome-free-brands/faFacebook';
+import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter';
+import faGithub from '@fortawesome/fontawesome-free-brands/faGithub';
+import faInstagram from '@fortawesome/fontawesome-free-brands/faInstagram';
+
+fontawesome.library.add(faFacebook, faTwitter, faGithub, faInstagram);
 
 export default class Footer extends Component {
   render() {
@@ -11,22 +18,22 @@ export default class Footer extends Component {
             <ul className="list-horizontal-unstyled icon-lg margin-top-30">
               <li>
                 <a href="#">
-                  <FontAwesome name="facebook-f" />
+                  <i className="fab fa-facebook" />
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <FontAwesome name="twitter" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-pinterest" />
+                  <i className="fab fa-twitter" />
                 </a>
               </li>
               <li>
                 <a href="#">
                   <i className="fab fa-instagram" />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i className="fab fa-github" />
                 </a>
               </li>
             </ul>
