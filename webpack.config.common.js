@@ -38,6 +38,10 @@ module.exports = {
         test: /\.(png|svg|jpg|gif)$/,
         use: ['file-loader'],
       },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file?name=./fonts/[name].[ext]',
+      },
     ],
   },
   plugins: [new ExtractTextPlugin('bundle.css')],

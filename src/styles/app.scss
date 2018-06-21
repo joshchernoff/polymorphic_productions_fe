@@ -10,6 +10,9 @@
 // //
 // // Import Google Fonts //
 // //
+
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+
 @import url('https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900');
 
@@ -44,9 +47,9 @@
 // @import 'components/clients';
 // @import 'components/contact-form';
 // @import 'components/countdown';
-// @import 'components/footer';
+@import 'components/footer';
 // @import 'components/gallery';
-// @import 'components/page-title';
+@import 'components/page-title';
 // @import 'components/iconbox';
 // @import 'components/timeline';
 // @import 'components/lightbox';
@@ -58,21 +61,17 @@
 // @import 'components/preloaders';
 // @import 'components/prices';
 // @import 'components/search';
-// @import 'components/section';
+@import 'components/section';
 // @import 'components/sidebar-nav';
 // @import 'components/shop';
 // @import 'components/slider';
 // @import 'components/subscribe';
 // @import 'components/team';
-// @import 'components/testimonial';
-// @import 'components/togglemenu';
+@import 'components/testimonial';
+@import 'components/togglemenu';
 // @import 'components/videobox';
 
 //
 // Import Custom Styles //
 //
 @import 'custom';
-
-#bigshit {
-  height: 10000px;
-}
