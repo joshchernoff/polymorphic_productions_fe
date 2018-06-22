@@ -49,7 +49,10 @@ export default class Header extends Component {
             <a className="navbar-brand" href="./">
               <h5>
                 <span>
-                  <span class="icon-shape" /> Polymorphic Productions
+                  <span className="icon-shape logo" />
+                  <span className="name d-none d-sm-inline">
+                    Polymorphic Productions
+                  </span>
                 </span>
               </h5>
             </a>

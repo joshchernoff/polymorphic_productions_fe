@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import fontawesome from '@fortawesome/fontawesome';
+// Facebook and Twitter icons
+import faArrowDown from '@fortawesome/fontawesome-free-solid/faArrowDown';
+fontawesome.library.add(faArrowDown);
+
 export default class SectionFullScreen extends Component {
   render() {
     return (
@@ -21,7 +26,7 @@ export default class SectionFullScreen extends Component {
             </div>
             <div className="position-bottom icon-lg">
               <a className="scrolldown" href="#services">
-                <i className="ti-arrow-down" />
+                <i className="fas fa-arrow-down" />
               </a>
             </div>
           </div>
