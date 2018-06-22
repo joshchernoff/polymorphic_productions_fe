@@ -5,6 +5,24 @@ import faArrowDown from '@fortawesome/fontawesome-free-solid/faArrowDown';
 fontawesome.library.add(faArrowDown);
 
 export default class SectionFullScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.scroll = this.scroll.bind(this);
+  }
+
+  scroll(e) {
+    debugger;
+    e.preventDefault();
+
+    window.scroll({
+      top: document.getElementById('services').offsetTop,
+      left: 0,
+      behavior: 'smooth',
+    });
+
+    //document.getElementsByTagName("body").items(0).animate({ scrollTop: $(this.hash).offset().top }, 800, "easeInOutQuart");
+  }
+
   render() {
     return (
       <div
@@ -25,7 +43,7 @@ export default class SectionFullScreen extends Component {
               </div>
             </div>
             <div className="position-bottom icon-lg">
-              <a className="scrolldown" href="#services">
+              <a className="scrolldown" href="#services" onClick={this.scroll}>
                 <i className="fas fa-arrow-down" />
               </a>
             </div>
