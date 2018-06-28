@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 export default class NavItem extends Component {
   render() {
     return (
       <li className="nav-item">
-        <a className="nav-link" href={this.props.href}>
+        <Link className="nav-link" to={this.props.link}>
           {this.props.title}
-        </a>
+        </Link>
       </li>
     );
   }

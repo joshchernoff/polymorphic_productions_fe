@@ -11,7 +11,6 @@ export default class SectionFullScreen extends Component {
   }
 
   scroll(e) {
-    debugger;
     e.preventDefault();
 
     window.scroll({

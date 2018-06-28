@@ -5,6 +5,7 @@ import faFacebook from '@fortawesome/fontawesome-free-brands/faFacebook';
 import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter';
 import faGithub from '@fortawesome/fontawesome-free-brands/faGithub';
 import faInstagram from '@fortawesome/fontawesome-free-brands/faInstagram';
+import { Link } from 'react-router-dom';
 
 fontawesome.library.add(faFacebook, faTwitter, faGithub, faInstagram);
 
@@ -50,10 +51,10 @@ export default class Footer extends Component {
               <div className="col-12 col-md-6 text-center text-md-right">
                 <ul className="list-horizontal-unstyled">
                   <li>
-                    <a href="#">Policy</a>
+                    <Link to="/policy">Policy</Link>
                   </li>
                   <li>
-                    <a href="#">Terms &amp; Conditions</a>
+                    <Link to="/terms">Terms &amp; Conditions</Link>
                   </li>
                 </ul>
               </div>

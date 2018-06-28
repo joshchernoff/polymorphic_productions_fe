@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
 import NavItem from './nav-item';
 import NavDropdown from './nav-dropdown';
-import Shape from '../images/shape.svg';
-
-// var navbarFixed = $(".navbar-fixed");
-
-// $(window).on("scroll", function() {
-//   if ($(window).scrollTop() >= 10) {
-//     navbarFixed.addClass("navbar-shrink");
-//   } else {
-//     navbarFixed.removeClass("navbar-shrink");
-//   }
-// });
-const show_class_name = 'navbar-shrink';
-
-export default class Header extends Component {
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
+class Header extends Component {
   constructor(props) {
     super(props);
     this.state = { show: '' };
@@ -30,7 +19,7 @@ export default class Header extends Component {
       document.getElementsByTagName('html').item(0).scrollTop > 0
     ) {
       this.setState(() => {
-        return { show: show_class_name };
+        return { show: 'navbar-shrink' };
       });
     } else {
       this.setState(() => {
@@ -46,7 +35,7 @@ export default class Header extends Component {
           className={`navbar navbar-absolute navbar-fixed ${this.state.show}`}
         >
           <div className="container">
-            <a className="navbar-brand" href="./">
+            <Link className="navbar-brand" to="/">
               <h5>
                 <span>
                   <span className="icon-shape logo" />
@@ -55,10 +44,16 @@ export default class Header extends Component {
                   </span>
                 </span>
               </h5>
-            </a>
+            </Link>
             <ul className="nav dropdown-dark">
-              <NavItem title="foobar" href="./foobar" />
-              <NavDropdown />
+              <NavDropdown
+                dropdown_title="Services"
+                items={[{ title: 'Photography', link: '/photography' }]}
+              />
+              <NavItem title="Blog" link="/blog" />
+              <NavItem title="Contact" link="/contact" />
+              <NavItem title="About" link="/about" />
+              <NavItem title="Login" link="/login" />
             </ul>
             <button className="nav-toggle-btn">
               <span className="lines" />
@@ -69,3 +64,5 @@ export default class Header extends Component {
     );
   }
 }
+
+export default withRouter(Header);
