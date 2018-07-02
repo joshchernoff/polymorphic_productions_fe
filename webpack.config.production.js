@@ -6,6 +6,7 @@ const merge = require('webpack-merge');
 const webpackCommonConfig = require('./webpack.config.common');
 
 module.exports = merge(webpackCommonConfig, {
+  mode: 'production',
   optimization: {
     minimizer: [
       // we specify a custom UglifyJsPlugin here to get source maps in production

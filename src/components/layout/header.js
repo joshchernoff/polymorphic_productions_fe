@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import NavItem from './nav-item';
-import NavDropdown from './nav-dropdown';
+import NavItem from './nav/nav-item';
+import NavDropdown from './nav/nav-dropdown';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 class Header extends Component {
@@ -54,6 +54,7 @@ class Header extends Component {
               <NavItem title="Contact" link="/contact" />
               <NavItem title="About" link="/about" />
               <NavItem title="Login" link="/login" />
+              <NavItem title="Signup" link="/signup" />
             </ul>
             <button className="nav-toggle-btn">
               <span className="lines" />
