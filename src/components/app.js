@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+
+// State
+import { Provider } from 'react-redux';
+
+import store from '../redux/store';
+
+// Layouts
 import Header from './layout/header';
 import ScrollToTop from './layout/scroll-to-top';
 import Footer from './layout/footer';
-import { Switch, Route } from 'react-router-dom';
-
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { combineForms } from 'react-redux-form';
 
 // Pages
 import Home from './static/home';
 import Signup from './registration/signup';
 
+// Styles
 import '../styles/app.scss';
-
-const initialUser = { name: '' };
-const store = createStore(
-  combineForms({
-    user: initialUser,
-  }),
-);
 
 export default class App extends Component {
   constructor(props) {

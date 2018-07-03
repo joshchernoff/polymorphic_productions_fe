@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 // import SectionHeader from './section-header';
-import { Control, Form } from 'react-redux-form';
+import { Control, Form, actions } from 'react-redux-form';
+import { connect } from 'react-redux';
 
-export default class Signup extends Component {
+function emailIsValid(email) {
+  console.log(email);
+  // terrible validation, I know
+  return email && email.length > 0;
+}
+class Signup extends Component {
   handleChange(values) {
     console.log(values);
   }
@@ -13,6 +19,8 @@ export default class Signup extends Component {
     console.log(values);
   }
   render() {
+    const { dispatch, registration } = this.props;
+
     return (
       <div
         className="section-fullscreen bg-image parallax"
@@ -29,53 +37,34 @@ export default class Signup extends Component {
                     Registration
                   </h4>
 
-                  {/* <form
-                    className="new_user"
-                    id="new_user"
-                    action="/users"
-                    accept-charset="UTF-8"
-                    method="post"
-                  > */}
                   <Form
-                    model="user"
+                    model="registration"
                     onUpdate={form => this.handleUpdate(form)}
                     onChange={values => this.handleChange(values)}
                     onSubmit={values => this.handleSubmit(values)}
                   >
                     <input name="utf8" type="hidden" value="&#x2713;" />
-
                     <div className="form-inputs">
-                      <Control.text model=".username" />
+                      <Control.text
+                        model="registration.email"
+                        placeholder="Your Email"
+                        onBlur={() =>
+                          dispatch(
+                            actions.validate(
+                              'registration.email',
+                              emailIsValid,
+                            ),
+                          )
+                        }
+                      />
 
-                      {/* <input
-                        className=""
-                        label="false"
-                        required="required"
-                        autofocus="autofocus"
-                        placeholder="Email"
-                        type="email"
-                        value=""
-                        name="user[email]"
-                        id="user_email"
-                      />
-                      <input
-                        className=""
-                        label="false"
-                        required="required"
-                        placeholder="Password"
+                      <Control.text
+                        model="registration.password"
+                        placeholder="Your Password"
                         type="password"
-                        name="user[password]"
-                        id="user_password"
+                        required
                       />
-                      <input
-                        className=""
-                        label="false"
-                        placeholder="Confirm Password"
-                        required="required"
-                        type="password"
-                        name="user[password_confirmation]"
-                        id="user_password_confirmation"
-                      /> */}
+
                       <button className="button button-lg button-outline-white-2 button-fullwidth">
                         Sign Up
                       </button>
@@ -101,3 +90,5 @@ export default class Signup extends Component {
     );
   }
 }
+
+export default connect(state => state.registration)(Signup);
