@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-// import SectionHeader from './section-header';
 import { Control, Form, actions } from 'react-redux-form';
 import { connect } from 'react-redux';
 
 function emailIsValid(email) {
-  console.log(email);
-  // terrible validation, I know
-  return email && email.length > 0;
+  return /(.+)@(.+){2,}\.(.+){2,}/.test(email);
 }
 class Signup extends Component {
   handleChange(values) {
-    console.log(values);
+    //console.log(values);
   }
   handleUpdate(form) {
-    console.log(form);
+    //console.log(form);
   }
   handleSubmit(values) {
-    console.log(values);
+    //console.log(values);
   }
   render() {
     const { dispatch, registration } = this.props;
@@ -91,4 +88,8 @@ class Signup extends Component {
   }
 }
 
-export default connect(state => state.registration)(Signup);
+const mapStateToProps = ({ registration }) => {
+  return { registration };
+};
+
+export default connect(mapStateToProps)(Signup);
