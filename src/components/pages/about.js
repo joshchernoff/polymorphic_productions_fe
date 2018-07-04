@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import SectionHeader from './section-header';
-export default class About extends Component {
+import Page from './page';
+class About extends Component {
   render() {
     return (
-      <div>
-        <SectionHeader
-          title="About"
-          image="https://polymorphic.productions/assets/posts-43ebb75e5d33ea48549dcb7d94c4cf6a44bce5e7cde5cc70cdce7973b1ff2a05.jpg"
-        />
+      <Page title="About">
         <div className="section">
           <div className="container">
             <div className="row">
@@ -40,7 +36,8 @@ export default class About extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </Page>
     );
   }
 }
+export default About;

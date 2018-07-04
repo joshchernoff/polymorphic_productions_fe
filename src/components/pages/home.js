@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SectionFullScreen from '../section-full-screen';
-import SectionServices from '../section-services';
+import SectionFullScreen from '../layout/section-full-screen';
+import SectionServices from '../layout/section-services';
 
 export default class Home extends Component {
   render() {

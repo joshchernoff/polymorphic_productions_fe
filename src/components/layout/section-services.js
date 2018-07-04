@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import fontawesome from '@fortawesome/fontawesome';
 import faCameraRetro from '@fortawesome/fontawesome-free-solid/faCameraRetro';
-import Camera from '../images/camera.svg';
-import Video from '../images/video.svg';
-import Code from '../images/code.svg';
+import Camera from '../../images/camera.svg';
+import Video from '../../images/video.svg';
+import Code from '../../images/code.svg';
 
 fontawesome.library.add(faCameraRetro);
 

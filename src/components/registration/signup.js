@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Control, Form, actions } from 'react-redux-form';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function emailIsValid(email) {
   return /(.+)@(.+){2,}\.(.+){2,}/.test(email);
@@ -71,11 +72,11 @@ class Signup extends Component {
                   <div className="margin-top-30">
                     <p>
                       By signing up, you agree to our{' '}
-                      <a href="#">Terms of Use</a>
+                      <Link to="/terms">Terms of Use</Link>
                     </p>
                   </div>
                   <div className="margin-top-30">
-                    <a href="/users/sign_in">Log in</a>
+                    <Link to="/login">Log in</Link>
                     <br />
                   </div>
                 </div>

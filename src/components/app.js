@@ -7,13 +7,23 @@ import { Provider } from 'react-redux';
 import store from '../redux/store';
 
 // Layouts
-import Header from './layout/header';
+import NavBar from './layout/nav-bar';
 import ScrollToTop from './layout/scroll-to-top';
 import Footer from './layout/footer';
 
 // Pages
-import Home from './static/home';
+import Home from './pages/home';
+import About from './pages/about';
+import TermsAndConditions from './pages/terms-and-conditions';
+import PrivacyPolicy from './pages/privacy-policy';
+import Contact from './pages/contact';
+import Photography from './pages/services-photography';
+import Web from './pages/services-web';
+import Videography from './pages/services-videography';
+import Design from './pages/services-design';
+
 import Signup from './registration/signup';
+import Login from './session/login';
 
 // Styles
 import '../styles/app.scss';
@@ -28,7 +38,7 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <React.Fragment>
-          <Header />
+          <NavBar />
 
           <ScrollToTop />
 
@@ -94,23 +104,19 @@ export default class App extends Component {
 
             <Route exact path="/user/:id/edit" component={UserEdit} />
             <Route exact path="/user/:id" component={UserShow} />
-            <Route exact path="/users" component={Users} />
+            <Route exact path="/users" component={Users} />*/}
 
             <Route exact path="/login" component={Login} />
-            <Route exact path="/logout" component={Logout} />
-
             <Route exact path="/services/photography" component={Photography} />
             <Route exact path="/services/videography" component={Videography} />
             <Route exact path="/services/web" component={Web} />
             <Route exact path="/services/design" component={Design} />
-
             <Route exact path="/contact" component={Contact} />
-
-            <Route exact path="/tac" component={TermsAndConditions} /> */}
-            {/* <Route exact path="/policy" component={Policy} /> */}
-            {/* <Route exact path="/about" component={About} /> */}
-            <Route exact path="/signup" exact component={Signup} />
-            <Route exact path="/" exact component={Home} />
+            <Route exact path="/terms" component={TermsAndConditions} />
+            <Route exact path="/policy" component={PrivacyPolicy} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/" component={Home} />
             {/* <Route component={NoMatch} /> */}
           </Switch>
 
