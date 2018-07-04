@@ -13,13 +13,13 @@ export default class NavDropdown extends Component {
   };
 
   render() {
+    const { active, title, items } = this.props;
+
     return (
-      <li
-        className={`nav-item nav-dropdown ${this.props.active ? 'active' : ''}`}
-      >
-        <a className="nav-link">{this.props.title}</a>
+      <li className={`nav-item nav-dropdown ${active ? 'active' : ''}`}>
+        <a className="nav-link">{title}</a>
         <ul className="dropdown-menu">
-          {this.props.items.map(({ title: title, link: link }, index) => {
+          {items.map(({ title: title, link: link }, index) => {
             return (
               <li key={index}>
                 <Link to={link}>{title}</Link>

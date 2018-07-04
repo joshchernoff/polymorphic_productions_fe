@@ -10,16 +10,17 @@ export default class SectionHeader extends Component {
   }
 
   render() {
+    const { image, title } = this.props;
     return (
       <div
         className="section-fullscreen bg-image parallax"
         style={{
-          backgroundImage: `url(${this.props.image})`,
+          backgroundImage: `url(${image})`,
         }}
       >
         <div className="page-title-sm bg-black-07 text-center">
           <div className="container">
-            <h1 className="font-weight-light">{this.props.title}</h1>
+            <h1 className="font-weight-light">{title}</h1>
           </div>
         </div>
       </div>

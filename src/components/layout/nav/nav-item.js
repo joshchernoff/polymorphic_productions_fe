@@ -14,13 +14,11 @@ class NavItem extends Component {
   };
 
   render() {
+    const { active, link, title } = this.props;
     return (
       <li className="nav-item">
-        <Link
-          className={`nav-link ${this.props.active ? 'active' : ''}`}
-          to={this.props.link}
-        >
-          {this.props.title}
+        <Link className={`nav-link ${active ? 'active' : ''}`} to={link}>
+          {title}
         </Link>
       </li>
     );

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import fontawesome from '@fortawesome/fontawesome';
-// Facebook and Twitter icons
 import faArrowDown from '@fortawesome/fontawesome-free-solid/faArrowDown';
 fontawesome.library.add(faArrowDown);
 
@@ -12,22 +11,20 @@ export default class SectionFullScreen extends Component {
 
   scroll(e) {
     e.preventDefault();
-
     window.scroll({
       top: document.getElementById('services').offsetTop,
       left: 0,
       behavior: 'smooth',
     });
-
-    //document.getElementsByTagName("body").items(0).animate({ scrollTop: $(this.hash).offset().top }, 800, "easeInOutQuart");
   }
 
   render() {
+    const { image } = this.props;
     return (
       <div
         className="section-fullscreen bg-image parallax"
         style={{
-          backgroundImage: `url(${this.props.image})`,
+          backgroundImage: `url(${image})`,
         }}
       >
         <div className="bg-black-07">
