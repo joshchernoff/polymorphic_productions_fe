@@ -25,6 +25,8 @@ import Design from './pages/services-design';
 import Signup from './registration/signup';
 import Login from './session/login';
 
+import Posts from './blog/posts';
+
 // Styles
 import '../styles/app.scss';
 
@@ -43,7 +45,13 @@ export default class App extends Component {
           <ScrollToTop />
 
           <Switch>
-            {/* <Route exact path="/model/:slug/release/new" component={user} />
+            {/* 
+            
+            <Route exact path="/user/:id/edit" component={UserEdit} />
+            <Route exact path="/user/:id" component={UserShow} />
+            <Route exact path="/users" component={Users} />
+
+            <Route exact path="/model/:slug/release/new" component={user} />
             <Route exact path="/model/:slug/release/:id" component={user} />
             <Route exact path="/model/:slug/releases" component={user} />
             <Route exact path="/model/:slug" component={user} />
@@ -98,13 +106,9 @@ export default class App extends Component {
             <Route exact path="/blog/tag/new" component={BlogTagNew} />
             <Route exact path="/blog/tag/:slug/edit" component={BlogTagEdit} />
             <Route exact path="/blog/tag/:slug" component={BlogTag} />
-            <Route exact path="/blog/tags" component={BlogTags} />
+            <Route exact path="/blog/tags" component={BlogTags} />*/}
 
-            <Route exact path="/blog" component={Blog} />
-
-            <Route exact path="/user/:id/edit" component={UserEdit} />
-            <Route exact path="/user/:id" component={UserShow} />
-            <Route exact path="/users" component={Users} />*/}
+            <Route exact path="/blog" component={Posts} />
 
             <Route exact path="/login" component={Login} />
             <Route exact path="/services/photography" component={Photography} />

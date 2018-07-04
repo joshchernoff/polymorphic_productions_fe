@@ -18,22 +18,22 @@ export default class Footer extends Component {
             <h4>Polymorphic Productions LLC</h4>
             <ul className="list-horizontal-unstyled icon-lg margin-top-30">
               <li>
-                <a href="#">
+                <a href="https://www.facebook.com/polymorphic.productions.llc/?ref=aymt_homepage_panel">
                   <i className="fab fa-facebook" />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="https://twitter.com/PolymorphicProd">
                   <i className="fab fa-twitter" />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="https://www.instagram.com/polymorphic.productions/">
                   <i className="fab fa-instagram" />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="https://github.com/joshchernoff">
                   <i className="fab fa-github" />
                 </a>
               </li>
