@@ -3,6 +3,8 @@ import NavItem from './nav/nav-item';
 import NavDropdown from './nav/nav-dropdown';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { registration } from '../../redux/reducers/registration';
 class NavBar extends Component {
   constructor(props) {
     super(props);
@@ -57,8 +59,19 @@ class NavBar extends Component {
             <NavItem title="Blog" link="/blog" />
             <NavItem title="Contact" link="/contact" />
             <NavItem title="About" link="/about" />
-            <NavItem title="Login" link="/login" />
-            <NavItem title="Signup" link="/signup" />
+            {this.props.registration.isAuthenticated ? (
+              <React.Fragment>
+                <NavDropdown
+                  title={this.props.registration.user.email}
+                  items={[{ title: 'Signout', link: '/signout' }]}
+                />
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <NavItem title="Signin" link="/signin" />
+                <NavItem title="Signup" link="/signup" />
+              </React.Fragment>
+            )}
           </ul>
 
           <button className="nav-toggle-btn">
@@ -69,5 +82,7 @@ class NavBar extends Component {
     );
   }
 }
-
-export default withRouter(NavBar);
+const mapStateToProps = state => {
+  return { registration: state.registration };
+};
+export default connect(mapStateToProps)(withRouter(NavBar));

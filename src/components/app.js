@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-
-// State
-import { Provider } from 'react-redux';
-
-import store from '../redux/store';
-
+// Store
+import { connect } from 'react-redux';
 // Layouts
 import NavBar from './layout/nav-bar';
 import ScrollToTop from './layout/scroll-to-top';
 import Footer from './layout/footer';
+
+//Actoins
+import { receiveRegistration } from '../actions/auth';
+import { BrowserRouter } from 'react-router-dom';
 
 // Pages
 import Home from './pages/home';
@@ -22,23 +22,30 @@ import Web from './pages/services-web';
 import Videography from './pages/services-videography';
 import Design from './pages/services-design';
 
-import Signup from './registration/signup';
-import Login from './session/login';
+import { Signup } from './registration/signup';
+import { Signin } from './session/signin';
 
 import Posts from './blog/posts';
 
 // Styles
 import '../styles/app.scss';
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = { navbarShrink: false };
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    if (token && user) {
+      this.props.receiveRegistration(user, token);
+    } else {
+      // this.props.unauthenticate();
+    }
   }
 
   render() {
     return (
-      <Provider store={store}>
+      <BrowserRouter>
         <React.Fragment>
           <NavBar />
 
@@ -110,7 +117,6 @@ export default class App extends Component {
 
             <Route exact path="/blog" component={Posts} />
 
-            <Route exact path="/login" component={Login} />
             <Route exact path="/services/photography" component={Photography} />
             <Route exact path="/services/videography" component={Videography} />
             <Route exact path="/services/web" component={Web} />
@@ -119,14 +125,33 @@ export default class App extends Component {
             <Route exact path="/terms" component={TermsAndConditions} />
             <Route exact path="/policy" component={PrivacyPolicy} />
             <Route exact path="/about" component={About} />
+
+            <Route exact path="/signin" component={Signin} />
+
             <Route exact path="/signup" component={Signup} />
+
             <Route exact path="/" component={Home} />
             {/* <Route component={NoMatch} /> */}
           </Switch>
 
           <Footer />
         </React.Fragment>
-      </Provider>
+      </BrowserRouter>
     );
   }
 }
+const mapStateToProps = state => {
+  return {};
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    receiveRegistration: (user, token) => {
+      debugger;
+      return dispatch(receiveRegistration(JSON.parse(user), token));
+    },
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);

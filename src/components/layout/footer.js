@@ -5,9 +5,17 @@ import faFacebook from '@fortawesome/fontawesome-free-brands/faFacebook';
 import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter';
 import faGithub from '@fortawesome/fontawesome-free-brands/faGithub';
 import faInstagram from '@fortawesome/fontawesome-free-brands/faInstagram';
+import faMastodon from '@fortawesome/fontawesome-free-brands/faMastodon';
+
 import { Link } from 'react-router-dom';
 
-fontawesome.library.add(faFacebook, faTwitter, faGithub, faInstagram);
+fontawesome.library.add(
+  faFacebook,
+  faTwitter,
+  faGithub,
+  faInstagram,
+  faMastodon,
+);
 
 export default class Footer extends Component {
   render() {
@@ -17,6 +25,11 @@ export default class Footer extends Component {
           <div className="container text-center">
             <h4>Polymorphic Productions LLC</h4>
             <ul className="list-horizontal-unstyled icon-lg margin-top-30">
+              <li>
+                <a href="">
+                  <i className="fab fa-mastodon" />
+                </a>
+              </li>
               <li>
                 <a href="https://www.facebook.com/polymorphic.productions.llc/?ref=aymt_homepage_panel">
                   <i className="fab fa-facebook" />
