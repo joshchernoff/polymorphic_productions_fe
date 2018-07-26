@@ -57,7 +57,9 @@ class InnerSigninForm extends Component {
             <div className="position-middle">
               <div className="row">
                 <div className="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-                  <h4 className="font-weight-light margin-bottom-30">Login</h4>
+                  <h4 className="font-weight-light margin-bottom-30">
+                    {errors.signin ? errors.signin : 'Login'}
+                  </h4>
 
                   <form autoComplete="false" onSubmit={handleSubmit}>
                     <div
@@ -155,13 +157,11 @@ export const SigninForm = withFormik({
     props.props.signin(values).then(
       response => {
         props.setSubmitting(false);
+        props.props.history.push('');
       },
       errors => {
-        //   props.setSubmitting(false);
-        //   const keys = Object.keys(errors);
-        //   keys.map(key => {
-        //     props.setFieldError(key, errors[key].toString());
-        //   });
+        props.setSubmitting(false);
+        props.setErrors({ signin: errors });
       },
     );
   },

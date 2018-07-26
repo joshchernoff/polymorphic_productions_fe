@@ -3,6 +3,7 @@ import {
   REGISTRATION_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_REQUEST,
+  LOGOUT_REQUEST,
 } from '../../actions/auth';
 
 export const registration = (state = {}, action) => {
@@ -28,14 +29,22 @@ export const registration = (state = {}, action) => {
         isFetching: action.isFetching,
         isSubmitting: action.isSubmitting,
       };
-    case LOGIN_SUCCESS: {
+    case LOGIN_SUCCESS:
       return {
         ...state,
         user: action.user,
         isAuthenticated: action.isAuthenticated,
         isFetching: action.isFetching,
       };
-    }
+
+    case LOGOUT_REQUEST:
+      return {
+        ...state,
+        isAuthenticated: action.isAuthenticated,
+        isFetching: action.isFetching,
+        isSubmitting: action.isSubmitting,
+        user: action.user,
+      };
 
     default:
       return state;

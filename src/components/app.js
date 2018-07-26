@@ -24,6 +24,7 @@ import Design from './pages/services-design';
 
 import { Signup } from './registration/signup';
 import { Signin } from './session/signin';
+import { Signout } from './session/signout';
 
 import Posts from './blog/posts';
 
@@ -34,10 +35,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { navbarShrink: false };
-    const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
-    if (token && user) {
-      this.props.receiveRegistration(user, token);
+    if (user) {
+      this.props.receiveRegistration(user);
     } else {
       // this.props.unauthenticate();
     }
@@ -126,8 +126,8 @@ class App extends Component {
             <Route exact path="/policy" component={PrivacyPolicy} />
             <Route exact path="/about" component={About} />
 
+            <Route exact path="/signout" component={Signout} />
             <Route exact path="/signin" component={Signin} />
-
             <Route exact path="/signup" component={Signup} />
 
             <Route exact path="/" component={Home} />
@@ -146,8 +146,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     receiveRegistration: (user, token) => {
-      debugger;
-      return dispatch(receiveRegistration(JSON.parse(user), token));
+      return dispatch(receiveRegistration(JSON.parse(user)));
     },
   };
 };
