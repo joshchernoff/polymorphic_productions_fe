@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Page from '../pages/page';
 import Post from './post';
+import Axios from 'axios';
+
+import { fetchPosts } from '../../actions/blog';
 
 class Posts extends Component {
   render() {
@@ -10,7 +13,7 @@ class Posts extends Component {
         <div id="posts" className="section">
           <div className="container text-center">
             <div
-              class="blog-masonry blog-column-3"
+              className="blog-masonry blog-column-3"
               style={{ position: 'relative', height: '570.75px' }}
             >
               {this.props.posts.map(p => {
@@ -30,6 +33,17 @@ const mapStateToProps = state => {
   };
 };
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    fetchPosts: dispatch(fetchPosts()),
+  };
 };
-export default connect(mapStateToProps)(Posts);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Posts);
+
+const domain = 'http://localhost:4000';
+const root_url = '/api/v1';
+const make_url = path => {
+  return domain + root_url + path;
+};

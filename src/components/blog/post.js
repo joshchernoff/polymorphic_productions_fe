@@ -22,7 +22,7 @@ class Post extends Component {
             <span>May 08, 2018</span>
           </div>
           <p>{this.props.body}</p>
-          <a class="text-btn" href="/posts/photos-with-strangers">
+          <a className="text-btn" href="/posts/photos-with-strangers">
             Read More
           </a>
         </div>

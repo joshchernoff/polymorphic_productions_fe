@@ -88,7 +88,11 @@ export const signin = creds => {
     dispatch(requestLogin());
     return new Promise((resolve, reject) => {
       const { email, password } = creds;
-      Axios.post(make_url('/sign_in'), { email, password })
+      Axios.post(
+        make_url('/sign_in'),
+        { email, password },
+        { withCredentials: true },
+      )
         .then(response => {
           const user = response.data.data.user;
           if (user) {
@@ -98,7 +102,7 @@ export const signin = creds => {
           }
         })
         .catch(errors => {
-          reject(errors.response.data.error);
+          reject(errors.response.data.errors);
         });
     });
   };
@@ -108,7 +112,10 @@ export const register = user => {
   return dispatch => {
     dispatch(requestRegistation());
     return new Promise((resolve, reject) => {
-      Axios.post(make_url('/sign_up'), { user: user })
+      Axios.post(make_url('/sign_up'), {
+        data: { user: user },
+        withCredentials: true,
+      })
         .then(response => {
           const user = response.data.data.user;
           if (user) {

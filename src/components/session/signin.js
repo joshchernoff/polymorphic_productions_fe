@@ -160,15 +160,16 @@ export const SigninForm = withFormik({
         props.props.history.push('');
       },
       errors => {
+        console.debug(errors);
         props.setSubmitting(false);
-        props.setErrors({ signin: errors });
+        props.setErrors({ signin: errors.detail });
       },
     );
   },
   displayName: 'SigninForm', // helps with React DevTools
 })(InnerSigninForm);
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch, _ownProps) => {
   return {
     signin: creds => dispatch(signin(creds)),
   };

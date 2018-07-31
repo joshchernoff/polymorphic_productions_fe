@@ -16,7 +16,7 @@ import { invoices } from './reducers/invoices';
 const initialState = {
   registration: { isAuthenticated: false },
   users: [],
-  posts: [{ title: 'foo', body: 'bar', key: 1 }],
+  posts: [],
   shots: [],
   clients: [],
   models: [],
