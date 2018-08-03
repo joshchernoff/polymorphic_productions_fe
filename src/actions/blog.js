@@ -3,20 +3,30 @@ import { make_url } from '../api';
 export const POSTS_REQUESTED = 'POSTS_REQUESTED';
 export const POSTS_REQUESTED_SUCCESS = 'POSTS_REQUESTED_SUCCESS';
 
-const postsRequested = () => {
+export const POST_REQUESTED = 'POST_REQUESTED';
+export const POST_REQUESTED_SUCCESS = 'POST_REQUESTED_SUCCESS';
+
+export const postsRequested = () => {
   return {
     type: POSTS_REQUESTED,
     isFetching: true,
     payload: {
       request: {
         url: make_url('/posts'),
+        withCredentials: true,
       },
     },
   };
 };
 
-export const fetchPosts = () => {
-  return dispatch => {
-    dispatch(postsRequested());
+export const postRequested = slug => {
+  return {
+    type: POST_REQUESTED,
+    isFetching: true,
+    payload: {
+      request: {
+        url: make_url(`/posts/${slug}`),
+      },
+    },
   };
 };

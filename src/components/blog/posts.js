@@ -4,9 +4,12 @@ import Page from '../pages/page';
 import Post from './post';
 import Axios from 'axios';
 
-import { fetchPosts } from '../../actions/blog';
+import { postsRequested } from '../../actions/blog';
 
 class Posts extends Component {
+  componentWillMount() {
+    this.props.posts.length == 0 ? this.props.postsRequested() : null;
+  }
   render() {
     return (
       <Page title="Blog">
@@ -17,7 +20,7 @@ class Posts extends Component {
               style={{ position: 'relative', height: '570.75px' }}
             >
               {this.props.posts.map(p => {
-                return <Post {...p} />;
+                return <Post {...p} key={p.id} />;
               })}
             </div>
           </div>
@@ -32,18 +35,12 @@ const mapStateToProps = state => {
     posts: state.posts,
   };
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchPosts: dispatch(fetchPosts()),
-  };
+
+const mapDispatchToProps = {
+  postsRequested,
 };
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Posts);
-
-const domain = 'http://localhost:4000';
-const root_url = '/api/v1';
-const make_url = path => {
-  return domain + root_url + path;
-};

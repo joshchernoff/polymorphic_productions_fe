@@ -113,7 +113,7 @@ export const register = user => {
     dispatch(requestRegistation());
     return new Promise((resolve, reject) => {
       Axios.post(make_url('/sign_up'), {
-        data: { user: user },
+        user,
         withCredentials: true,
       })
         .then(response => {

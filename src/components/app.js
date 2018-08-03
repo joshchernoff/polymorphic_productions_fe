@@ -27,6 +27,7 @@ import { Signin } from './session/signin';
 import { Signout } from './session/signout';
 
 import Posts from './blog/posts';
+import FullPost from './blog/full-post';
 
 // Styles
 import '../styles/app.scss';
@@ -96,7 +97,6 @@ class App extends Component {
             <Route exact path="/blog/date/:year" component={user} />
 
             <Route exact path="/blog/:slug/edit" component={user} />
-            <Route exact path="/blog/:slug" component={user} />
             <Route exact path="/blog/new" component={user} />
 
             <Route exact path="/blog/comments" component={user} />
@@ -115,6 +115,7 @@ class App extends Component {
             <Route exact path="/blog/tag/:slug" component={BlogTag} />
             <Route exact path="/blog/tags" component={BlogTags} />*/}
 
+            <Route exact path="/blog/:slug" component={FullPost} />
             <Route exact path="/blog" component={Posts} />
 
             <Route exact path="/services/photography" component={Photography} />

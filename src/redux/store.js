@@ -7,6 +7,7 @@ import { reducer as api } from 'redux-json-api';
 import { registration } from './reducers/registration';
 import { users } from './reducers/users';
 import { posts } from './reducers/posts';
+import { current_post } from './reducers/current_post';
 import { shots } from './reducers/shots';
 import { clients } from './reducers/clients';
 import { models } from './reducers/models';
@@ -17,6 +18,7 @@ const initialState = {
   registration: { isAuthenticated: false },
   users: [],
   posts: [],
+  current_post: {},
   shots: [],
   clients: [],
   models: [],
@@ -35,6 +37,7 @@ const store = createStore(
     registration: registration,
     users,
     posts,
+    current_post,
     shots,
     models,
     contracts,
