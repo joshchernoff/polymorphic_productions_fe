@@ -4,6 +4,7 @@ import { withFormik } from 'formik';
 import { object, string } from 'yup';
 import { signin } from '../../actions/auth';
 import { connect } from 'react-redux';
+import { LOGIN_REQUEST_FAIL, LOGIN_REQUEST_SUCCESS } from '../../actions/auth';
 
 class InnerSigninForm extends Component {
   constructor(props) {
@@ -154,17 +155,17 @@ export const SigninForm = withFormik({
   }),
 
   handleSubmit: (values, props) => {
-    props.props.signin(values).then(
-      response => {
-        props.setSubmitting(false);
-        props.props.history.push('');
-      },
-      errors => {
-        console.debug(errors);
-        props.setSubmitting(false);
-        props.setErrors({ signin: errors.detail });
-      },
-    );
+    props.props.signin(values).then(response => {
+      switch (response.type) {
+        case LOGIN_REQUEST_FAIL:
+          props.setSubmitting(false);
+          props.setErrors({ signin: 'Login Failed' });
+          break;
+        case LOGIN_REQUEST_SUCCESS:
+          props.setSubmitting(false);
+          props.props.history.push('');
+      }
+    });
   },
   displayName: 'SigninForm', // helps with React DevTools
 })(InnerSigninForm);

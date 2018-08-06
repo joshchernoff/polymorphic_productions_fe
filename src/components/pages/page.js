@@ -13,8 +13,11 @@ class Page extends Component {
       <div>
         <SectionHeader
           title={title}
+          size={this.props.size}
           image="https://polymorphic.productions/assets/posts-43ebb75e5d33ea48549dcb7d94c4cf6a44bce5e7cde5cc70cdce7973b1ff2a05.jpg"
-        />
+        >
+          {this.props.header}
+        </SectionHeader>
         {children}
       </div>
     );

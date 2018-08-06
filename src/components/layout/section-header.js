@@ -18,9 +18,13 @@ export default class SectionHeader extends Component {
           backgroundImage: `url(${image})`,
         }}
       >
-        <div className="page-title-sm bg-black-07 text-center">
+        <div
+          className={`page-title-${this.props.size ||
+            'sm'} bg-black-07 text-center`}
+        >
           <div className="container">
             <h1 className="font-weight-light">{title}</h1>
+            {this.props.children}
           </div>
         </div>
       </div>

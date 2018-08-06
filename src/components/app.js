@@ -25,6 +25,7 @@ import Design from './pages/services-design';
 import { Signup } from './registration/signup';
 import { Signin } from './session/signin';
 import { Signout } from './session/signout';
+import { authInit } from '../actions/auth';
 
 import Posts from './blog/posts';
 import FullPost from './blog/full-post';
@@ -36,12 +37,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { navbarShrink: false };
-    const user = localStorage.getItem('user');
-    if (user) {
-      this.props.receiveRegistration(user);
-    } else {
-      // this.props.unauthenticate();
-    }
+    this.props.authInit();
   }
 
   render() {
@@ -144,12 +140,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {};
 };
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    receiveRegistration: (user, token) => {
-      return dispatch(receiveRegistration(JSON.parse(user)));
-    },
-  };
+const mapDispatchToProps = {
+  authInit,
 };
 export default connect(
   mapStateToProps,
