@@ -23,7 +23,7 @@ export default class ScrollToTop extends Component {
   handleScroll(scroll_pos) {
     if (
       document.getElementsByTagName('body').item(0).scrollTop ||
-      document.getElementsByTagName('html').item(0).scrollTop > 700
+      document.getElementsByTagName('html').item(0).scrollTop > 200
     ) {
       this.setState(() => {
         return { show: show_class_name };

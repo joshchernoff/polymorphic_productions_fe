@@ -53,6 +53,56 @@ class Contact extends Component {
             </div>
           </div>
         </div>
+
+        <div className="section no-padding-top">
+          <div className="container">
+            <div className="contact-form">
+              <form
+                className="new_contact"
+                id="new_contact"
+                accept-charset="UTF-8"
+                method="post"
+              >
+                <div className="form-row">
+                  <div className="col-12 col-sm-6">
+                    <input
+                      placeholder="Name"
+                      required="required"
+                      type="text"
+                      name="contact[name]"
+                      id="contact_name"
+                    />
+                  </div>
+                  <div className="col-12 col-sm-6">
+                    <input
+                      placeholder="Email"
+                      type="email"
+                      required="required"
+                      name="contact[email]"
+                      id="contact_email"
+                    />
+                  </div>
+                </div>
+                <input
+                  placeholder="Subject"
+                  required="required"
+                  type="text"
+                  name="contact[subject]"
+                  id="contact_subject"
+                />
+                <textarea
+                  placeholder="Message"
+                  required="required"
+                  name="contact[message]"
+                  id="contact_message"
+                />
+                <button className="button button-xl button-dark" type="submit">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
       </Page>
     );
   }
